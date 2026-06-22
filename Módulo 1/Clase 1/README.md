@@ -1,4 +1,4 @@
-# Introducción a JavaScript
+# Clase 1: Introducción a JavaScript
 
 ---
 
