@@ -1,137 +1,59 @@
-# Clase 1: Introducción a JavaScript, Variables, Tipado Dinámico y Operadores Especiales
-
-## Objetivos de la clase
-
-Al finalizar esta clase los estudiantes serán capaces de:
-
-* Comprender qué es JavaScript y para qué se utiliza.
-* Diferenciar entre el entorno Navegador y Node.js.
-* Entender la diferencia entre tipado estático y tipado dinámico.
-* Declarar variables utilizando `let` y `const`.
-* Identificar los principales tipos de datos de JavaScript.
-* Utilizar operadores aritméticos, de comparación y lógicos.
-* Aplicar los operadores modernos `&&`, `||` y `??`.
+# Introducción a JavaScript
 
 ---
 
-# Parte 1: ¿Qué es JavaScript?
+# ¿Qué es JavaScript?
 
-Cuando visitamos una página web normalmente intervienen tres tecnologías:
+JavaScript es el lenguaje que da comportamiento a las páginas web.
 
-### HTML
-
-Define la estructura de la página.
-
-```html
-<h1>Hola Mundo</h1>
-<button>Presionar</button>
-```
+| Tecnología | Función        |
+| ---------- | -------------- |
+| HTML       | Estructura     |
+| CSS        | Apariencia     |
+| JavaScript | Comportamiento |
 
 ---
 
-### CSS
+# ¿Dónde se ejecuta?
 
-Define la apariencia visual.
+## Navegador
 
-```css
-h1{
-    color: blue;
-}
-```
+Tiene acceso a:
 
----
-
-### JavaScript
-
-Define el comportamiento.
-
-```javascript
-console.log("Hola Mundo");
-```
-
-JavaScript permite:
-
-* Responder a clics de botones.
-* Validar formularios.
-* Mostrar información dinámica.
-* Consumir datos desde Internet.
-* Crear videojuegos.
-* Construir aplicaciones completas.
-
-Actualmente es uno de los lenguajes más utilizados del mundo porque puede trabajar tanto en el navegador como en el servidor.
-
----
-
-# Parte 2: ¿Dónde se ejecuta JavaScript?
-
-## En el Navegador
-
-Ejemplos:
-
-* Chrome
-* Firefox
-* Edge
-
-JavaScript puede controlar:
-
+* HTML
 * Botones
 * Formularios
-* Imágenes
-* Ventanas
-* Elementos HTML
-
-Ejemplo:
+* Ventanas (`window`)
 
 ```javascript
-alert("Hola desde el navegador");
+alert("Hola");
 ```
 
 ---
 
-## En Node.js
+## Node.js
 
-Node.js permite ejecutar JavaScript fuera del navegador.
-
-Ejemplo:
+Se ejecuta fuera del navegador.
 
 ```javascript
-console.log("Hola desde Node.js");
+console.log("Hola desde Node");
 ```
 
 Se utiliza para:
 
-* Crear servidores web.
-* Construir APIs.
-* Automatizar tareas.
-* Crear aplicaciones backend.
+* Servidores
+* APIs
+* Automatización
 
 ---
 
-## Comparación
-
-| Navegador        | Node.js         |
-| ---------------- | --------------- |
-| Tiene HTML       | No tiene HTML   |
-| Tiene DOM        | No tiene DOM    |
-| Tiene window     | No tiene window |
-| Interfaz gráfica | Consola         |
-
----
-
-# Parte 3: Mi primer programa
-
-El programa más famoso de cualquier lenguaje es:
+# 👋 Hola Mundo
 
 ```javascript
 console.log("Hola Mundo");
 ```
 
-Explicación:
-
-* `console` representa la consola.
-* `log()` muestra información.
-
-Resultado:
+Salida:
 
 ```text
 Hola Mundo
@@ -139,159 +61,51 @@ Hola Mundo
 
 ---
 
-# Parte 4: El gran cambio para quienes vienen de C++
+# 🔥 El gran cambio: C++ vs JavaScript
 
-## Tipado Estático vs Tipado Dinámico
-
-Antes de aprender variables en JavaScript debemos entender una diferencia fundamental respecto a C++.
-
----
-
-## ¿Cómo funciona C++?
-
-Cuando creamos una variable debemos indicar el tipo de dato.
+## C++ → Tipado Estático
 
 ```cpp
 int edad = 15;
-string nombre = "Carlos";
-bool activo = true;
 ```
 
-Cada variable tiene un tipo fijo.
-
-Por ejemplo:
+❌ Esto produce error:
 
 ```cpp
-int edad = 15;
-
 edad = "Hola";
 ```
 
-Esto genera error porque la variable fue creada para almacenar números enteros.
+La variable tiene un tipo fijo.
 
 ---
 
-### ¿Qué significa Tipado Estático?
-
-**Definición:**
-
-> El tipo de dato se define al crear la variable y no puede cambiar.
-
-Visualmente:
-
-```text
-edad
-└── SOLO puede almacenar enteros
-```
-
-Ventajas:
-
-* Detecta errores antes de ejecutar.
-* Es más seguro.
-* Es más estricto.
-
----
-
-## ¿Cómo funciona JavaScript?
-
-En JavaScript no indicamos el tipo.
+## JavaScript → Tipado Dinámico
 
 ```javascript
 let edad = 15;
+
+edad = "Hola";
+
+edad = true;
 ```
 
-JavaScript analiza automáticamente el valor y determina el tipo.
+✅ Es válido.
+
+Una variable puede cambiar de tipo.
 
 ---
 
-### Esto es válido
+# typeof
+
+Permite saber el tipo de un dato.
 
 ```javascript
-let dato = 15;
-
-dato = "Hola";
-
-dato = true;
-```
-
-La misma variable almacena distintos tipos de datos.
-
-Visualmente:
-
-```text
-dato
-└── 15
-```
-
-Después:
-
-```text
-dato
-└── "Hola"
-```
-
-Después:
-
-```text
-dato
-└── true
-```
-
----
-
-### ¿Qué significa Tipado Dinámico?
-
-**Definición:**
-
-> El tipo puede cambiar durante la ejecución del programa.
-
----
-
-## Analogía
-
-### C++
-
-Caja especializada:
-
-```text
-┌─────────┐
-│ INT     │
-└─────────┘
-```
-
-Solo acepta números.
-
----
-
-### JavaScript
-
-Caja flexible:
-
-```text
-┌─────────┐
-│         │
-└─────────┘
-```
-
-Hoy puede guardar un número.
-
-Mañana un texto.
-
-Después un valor booleano.
-
----
-
-## El operador typeof
-
-Permite averiguar el tipo de un dato.
-
-```javascript
-let dato = 15;
+let dato = 10;
 
 console.log(typeof dato);
 ```
 
-Resultado:
+Salida:
 
 ```text
 number
@@ -305,7 +119,7 @@ dato = "Hola";
 console.log(typeof dato);
 ```
 
-Resultado:
+Salida:
 
 ```text
 string
@@ -313,78 +127,19 @@ string
 
 ---
 
-```javascript
-dato = true;
+## Tipos que veremos
 
-console.log(typeof dato);
-```
-
-Resultado:
-
-```text
-boolean
-```
+| Tipo      | Ejemplo            |
+| --------- | ------------------ |
+| String    | `"Juan"`           |
+| Number    | `25`, `3.14`       |
+| Boolean   | `true`, `false`    |
+| Null      | `null`             |
+| Undefined | variable sin valor |
 
 ---
 
-## Ventajas del Tipado Dinámico
-
-Permite escribir código más rápido.
-
-```javascript
-let nombre = "Carlos";
-let edad = 15;
-let activo = true;
-```
-
-No es necesario especificar tipos.
-
----
-
-## Desventajas
-
-Puede producir errores inesperados.
-
-```javascript
-let numero = "10";
-
-console.log(numero + 5);
-```
-
-Resultado:
-
-```text
-105
-```
-
-Porque `"10"` es texto y JavaScript concatena ambos valores.
-
----
-
-### Comparación rápida
-
-| Característica        | C++ | JavaScript |
-| --------------------- | --- | ---------- |
-| Tipo obligatorio      | Sí  | No         |
-| Puede cambiar de tipo | No  | Sí         |
-| Más flexible          | No  | Sí         |
-| Más seguro            | Sí  | Menos      |
-
----
-
-## Lo que deben recordar
-
-La diferencia más importante entre C++ y JavaScript es:
-
-> En JavaScript las variables no tienen un tipo fijo.
-
----
-
-# Parte 5: Variables
-
-Las variables son espacios en memoria donde almacenamos información.
-
----
+# 📦 Variables
 
 ## let
 
@@ -400,13 +155,13 @@ edad = 16;
 
 ## const
 
-Se utiliza cuando el valor no debe cambiar.
+Se utiliza cuando el valor NO debe cambiar.
 
 ```javascript
 const PI = 3.1416;
 ```
 
-Esto genera error:
+❌ Error:
 
 ```javascript
 PI = 5;
@@ -414,89 +169,98 @@ PI = 5;
 
 ---
 
-## Regla rápida
+# Regla rápida
 
-¿El valor cambiará?
+```text
+¿Va a cambiar?
 
-* Sí → `let`
-* No → `const`
-
----
-
-# Parte 6: Tipos de datos básicos
-
-## String
-
-Texto.
-
-```javascript
-let nombre = "Carlos";
+Sí → let
+No → const
 ```
 
 ---
 
-## Number
-
-Números enteros o decimales.
+# ➕ Operadores aritméticos
 
 ```javascript
-let edad = 15;
-let precio = 19.99;
++
+-
+*
+/
+%
 ```
 
----
-
-## Boolean
-
-Verdadero o falso.
-
-```javascript
-let activo = true;
-let premium = false;
-```
-
----
-
-## Null
-
-Representa ausencia de valor.
-
-```javascript
-let usuario = null;
-```
-
----
-
-## Undefined
-
-Variable creada pero sin valor.
-
-```javascript
-let correo;
-```
-
----
-
-# Parte 7: Operadores básicos
-
-## Aritméticos
+Ejemplo:
 
 ```javascript
 let a = 10;
 let b = 5;
 
 console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-console.log(a / b);
+```
+
+Salida:
+
+```text
+15
 ```
 
 ---
 
-## Comparación
+# 🔍 Comparación
+
+Mayor que
 
 ```javascript
-console.log(10 > 5);
+10 > 5
+```
+
+```text
+true
+```
+
+---
+
+Menor que
+
+```javascript
+10 < 5
+```
+
+```text
+false
+```
+
+---
+
+Igualdad estricta
+
+```javascript
+5 === 5
+```
+
+```text
+true
+```
+
+---
+
+## ⚠ Siempre preferir
+
+```javascript
+===
+```
+
+sobre
+
+```javascript
+==
+```
+
+Porque también compara el tipo.
+
+```javascript
+"5" == 5
 ```
 
 Resultado:
@@ -508,7 +272,7 @@ true
 ---
 
 ```javascript
-console.log(10 < 5);
+"5" === 5
 ```
 
 Resultado:
@@ -519,31 +283,13 @@ false
 
 ---
 
-## Igualdad estricta
-
-```javascript
-console.log(5 === 5);
-```
-
-Resultado:
-
-```text
-true
-```
+# 🚀 Operadores modernos
 
 ---
 
-# Parte 8: Operadores modernos de JavaScript
+## OR ||
 
-Estos operadores aparecen constantemente en proyectos reales.
-
----
-
-## Operador ||
-
-Significa:
-
-> Si el valor de la izquierda es falso, utiliza el de la derecha.
+Si el valor de la izquierda es falso, utiliza el de la derecha.
 
 ```javascript
 let nombre = "";
@@ -551,7 +297,7 @@ let nombre = "";
 console.log(nombre || "Invitado");
 ```
 
-Resultado:
+Salida:
 
 ```text
 Invitado
@@ -559,11 +305,22 @@ Invitado
 
 ---
 
-## Operador &&
+### Valores falsos (Falsy)
 
-Significa:
+```javascript
+false
+0
+""
+null
+undefined
+NaN
+```
 
-> Solo ejecuta lo de la derecha si lo de la izquierda es verdadero.
+---
+
+## AND &&
+
+Solo ejecuta la derecha si la izquierda es verdadera.
 
 ```javascript
 let logueado = true;
@@ -571,7 +328,7 @@ let logueado = true;
 logueado && console.log("Bienvenido");
 ```
 
-Resultado:
+Salida:
 
 ```text
 Bienvenido
@@ -579,11 +336,22 @@ Bienvenido
 
 ---
 
-## Operador ??
+Equivale a:
 
-Significa:
+```javascript
+if(logueado){
+    console.log("Bienvenido");
+}
+```
 
-> Usa el valor de la derecha únicamente si el de la izquierda es null o undefined.
+---
+
+## Nullish ??
+
+Usa el valor de la derecha solo si el de la izquierda es:
+
+* `null`
+* `undefined`
 
 ```javascript
 let nombre = null;
@@ -591,7 +359,7 @@ let nombre = null;
 console.log(nombre ?? "Invitado");
 ```
 
-Resultado:
+Salida:
 
 ```text
 Invitado
@@ -599,130 +367,120 @@ Invitado
 
 ---
 
-## Diferencia entre || y ??
+# Diferencia entre || y ??
 
 ```javascript
 let puntos = 0;
+```
 
+Con `||`
+
+```javascript
 console.log(puntos || 100);
 ```
 
-Resultado:
+Salida:
 
 ```text
 100
 ```
 
+Porque `0` es falsy.
+
 ---
+
+Con `??`
 
 ```javascript
 console.log(puntos ?? 100);
 ```
 
-Resultado:
+Salida:
 
 ```text
 0
 ```
 
+Porque `0` sí existe.
+
 ---
 
-## Regla para recordar
+# 📌 Resumen rápido
 
-```text
-||  → reemplaza cualquier valor falso
+## Variables
 
-?? → reemplaza solamente null o undefined
+```javascript
+let nombre = "Juan";
+const PI = 3.14;
 ```
 
 ---
 
-# Ejercicio Guiado
+## Saber el tipo
 
 ```javascript
-const nombre = "Ana";
+typeof valor
+```
+
+---
+
+## Comparación recomendada
+
+```javascript
+===
+```
+
+---
+
+## Operadores modernos
+
+```javascript
+&&
+```
+
+Ejecuta si existe algo verdadero.
+
+---
+
+```javascript
+||
+```
+
+Valor por defecto.
+
+---
+
+```javascript
+??
+```
+
+Valor por defecto solo para `null` y `undefined`.
+
+---
+
+# 🧠 Mentalidad para quienes vienen de C++
+
+### C++
+
+```cpp
+int edad = 15;
+```
+
+La variable es un entero para siempre.
+
+---
+
+### JavaScript
+
+```javascript
 let edad = 15;
-let estudiante = true;
 
-console.log(nombre);
-console.log(edad);
-console.log(estudiante);
+edad = "quince";
+
+edad = true;
 ```
 
----
+Todo es válido.
 
-# Mini Reto Individual
+> En JavaScript el tipo pertenece al valor, no a la variable.
 
-### Ejercicio 1
-
-Crear variables:
-
-```javascript
-nombre
-edad
-ciudad
-```
-
-y mostrarlas en consola.
-
----
-
-### Ejercicio 2
-
-Crear:
-
-```javascript
-let nota = 80;
-```
-
-Mostrar:
-
-```text
-Aprobado
-```
-
-si la nota es mayor o igual a 60.
-
----
-
-### Ejercicio 3
-
-```javascript
-let usuario = "";
-```
-
-Mostrar:
-
-```text
-Invitado
-```
-
-utilizando `||`.
-
----
-
-### Ejercicio 4
-
-Analizar el siguiente código:
-
-```javascript
-let dato = 10;
-
-console.log(typeof dato);
-
-dato = "Hola";
-
-console.log(typeof dato);
-
-dato = false;
-
-console.log(typeof dato);
-```
-
-Explicar por qué los resultados son:
-
-```text
-number
-string
-boolean
-```
